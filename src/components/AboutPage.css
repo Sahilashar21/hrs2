@@ -1,0 +1,144 @@
+/* Import a Google Font if needed, but sticking to the theme's Arial */
+@import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Arial, sans-serif'; /* Consistent with the theme */
+}
+
+.about-container {
+  font-family: 'Arial, sans-serif';
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%); /* Dark gradient from the theme */
+  min-height: 100vh; /* Full viewport height */
+  color: #fff; /* White text as per theme */
+  padding: 40px 20px; /* Some padding for breathing room */
+  display: flex; /* Flex for centering */
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+  text-align: center; /* Default text alignment */
+}
+
+.about-section {
+  padding: 40px 20px; /* Padding similar to theme's sections */
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent dark overlay like carouselSection */
+  border-radius: 10px; /* Soft edges for a modern look */
+  max-width: 800px; /* Limit width for readability */
+  width: 100%;
+  margin-bottom: 40px; /* Space between sections */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+}
+
+.about-section h1 {
+  font-size: 2.5rem; /* Large heading */
+  color: #00BFFF; /* Accent color from the theme */
+  font-weight: bold;
+  margin-bottom: 20px; /* Space below heading */
+  transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.about-section p {
+  font-size: 1.1rem; /* Readable size */
+  color: #ccc; /* Light gray for subtitles, as in heroSubtitle */
+  line-height: 1.6; /* Improved readability */
+  strong {
+    color: #00BFFF; /* Highlight strong text with accent color */
+    font-weight: bold;
+  }
+}
+
+.team-section {
+  padding: 40px 20px; /* Padding like other sections */
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+  border-radius: 10px; /* Soft edges */
+  max-width: 800px; /* Limit width */
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+}
+
+.team-section h2 {
+  font-size: 2rem; /* Slightly smaller than h1 */
+  color: #00BFFF; /* Accent color */
+  font-weight: bold;
+  margin-bottom: 30px; /* Space below heading */
+  transition: color 0.3s ease; /* Smooth transition */
+}
+
+.team-member {
+  display: flex; /* Flex for layout */
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center items */
+}
+
+.team-photo {
+  width: 200px; /* Fixed size, but responsive */
+  height: 200px;
+  border-radius: 50%; /* Circular image */
+  object-fit: cover; /* Maintain aspect ratio */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Shadow like in the original code */
+  margin-bottom: 20px; /* Space below image */
+  transition: transform 0.3s ease; /* Hover effect */
+}
+
+.team-photo:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.team-member h3 {
+  font-size: 1.8rem; /* Bold name */
+  color: #fff; /* White for prominence */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.team-member .designation {
+  font-size: 1rem; /* Smaller text */
+  color: #00BFFF; /* Accent for designation */
+  text-transform: uppercase; /* Uppercase as in the original */
+  margin-bottom: 15px;
+  letter-spacing: 1px; /* Tracking for emphasis */
+}
+
+.team-member .description {
+  font-size: 1.1rem;
+  color: #ccc; /* Light gray for body text */
+  line-height: 1.6;
+  strong {
+    color: #00BFFF; /* Highlight strong text */
+    font-weight: bold;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 20px 10px; /* Less padding on mobile */
+  }
+
+  .about-section, .team-section {
+    padding: 20px 10px; /* Reduce padding */
+  }
+
+  .about-section h1 {
+    font-size: 2rem; /* Smaller headings */
+  }
+
+  .team-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .team-photo {
+    width: 150px; /* Smaller image on mobile */
+    height: 150px;
+  }
+
+  .team-member h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section p, .team-member .description {
+    font-size: 1rem; /* Even smaller text */
+  }
+}
