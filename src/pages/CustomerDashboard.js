@@ -769,7 +769,7 @@ const CustomerDashboard = () => {
             Welcome Back, {user?.displayName || user?.email?.split('@')[0]}! 👋
           </h1>
           <p style={{ fontSize: '1rem', color: '#999', marginBottom: '20px' }}>
-            Here's your music production journey overview
+            Let’s see how your voice rocked HRS Studio lately!
           </p>
         </div>
 
