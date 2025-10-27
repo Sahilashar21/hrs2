@@ -546,6 +546,8 @@ import studio4 from './images/studio4.jpg';
 import studio5 from './images/studio5.mp4';
 import studio6 from './images/studio6.mp4';
 import { Type } from 'lucide-react';
+import { Analytics } from "@vercel/analytics/react";
+
 function App() {
   return (
     <Router>
@@ -911,6 +913,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/about" element={<AboutPage />} />
       </Routes>
+      <Analytics />
     </Router>
   );
 }

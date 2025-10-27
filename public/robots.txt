@@ -1,3 +1,5 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemap helps search engines find all pages easily
+Sitemap: https://hrsstudio.fun/sitemap.xml
