@@ -1058,7 +1058,7 @@ const slides = [
             gap: 15, 
             alignItems: 'center'
           }}>
-            {['Login', 'Admin', 'Dashboard', 'About'].map((label, i) => (
+            {['Login', 'Dashboard', 'About'].map((label, i) => (
               <button 
                 key={i} 
                 className="nav-btn" 
@@ -1075,7 +1075,7 @@ const slides = [
                   zIndex: 1,
                   transition: 'all 0.3s ease'
                 }} 
-                onClick={() => navigate(['login','admin','dashboard','about'][i])}
+                onClick={() => navigate(['login','dashboard','about'][i])}
               >
                 {label}
               </button>
@@ -1152,11 +1152,11 @@ const slides = [
             borderTop: '1px solid rgba(0,255,255,0.2)'
           }}
         >
-          {['Login', 'Admin', 'Dashboard', 'About'].map((label, i) => (
+          {['Login', 'Dashboard', 'About'].map((label, i) => (
             <button
               key={i}
               onClick={() => {
-                navigate(['login','admin','dashboard','about'][i]);
+                navigate(['login','dashboard','about'][i]);
                 setMenuOpen(false);
               }}
               style={{
