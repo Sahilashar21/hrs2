@@ -1786,7 +1786,7 @@ const slides = [
           }}>
             {[
               { icon: 'bi-facebook', url: 'https://www.facebook.com/profile.php?id=100057460298837#' },
-              { icon: 'bi-instagram', url: 'https://www.instagram.com/hrsvasai/' },
+              { icon: 'bi-instagram', url: 'https://www.instagram.com/_hrs.studio_' },
               { icon: 'bi-youtube', url: 'https://www.youtube.com/@hrseventsentertainment8102' },
               { icon: 'bi-google', url: 'https://g.co/kgs/Co7pMp7' }
             ].map((social, i) => (

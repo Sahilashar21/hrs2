@@ -774,105 +774,87 @@ const CustomerDashboard = () => {
         </div>
 
         {/* Quick Stats Grid */}
-        <div className="stats-grid" style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', 
-          gap: 15, 
-          marginBottom: 30,
-          padding: '0 10px'
-        }}>
-          <div className="stat-card card" style={{ 
-            background: 'rgba(0, 0, 0, 0.6)', 
-            backdropFilter: 'blur(15px)', 
-            borderRadius: 20, 
-            padding: 20, 
-            border: '2px solid rgba(0, 255, 255, 0.4)', 
-            textAlign: 'center' 
-          }}>
-            <div style={{ fontSize: '2rem', marginBottom: 10 }}>💰</div>
-            <div className="stat-number" style={{ 
-              fontSize: '1.5rem', 
-              fontWeight: 900, 
-              background: 'linear-gradient(135deg, #0ff, #f0f)', 
-              WebkitBackgroundClip: 'text', 
-              WebkitTextFillColor: 'transparent', 
-              marginBottom: 5 
-            }}>
-              ₹{walletBalance.toLocaleString()}
-            </div>
-            <div style={{ color: '#999', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: 0.5 }}>
-              Current Balance
-            </div>
-          </div>
+<div className="stats-grid" style={{ 
+  display: 'grid', 
+  gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', 
+  gap: 15, 
+  marginBottom: 30,
+  padding: '0 10px'
+}}>
+  {/* Current Balance */}
+  <div className="stat-card card" style={{ 
+    background: 'rgba(0, 0, 0, 0.6)', 
+    backdropFilter: 'blur(15px)', 
+    borderRadius: 20, 
+    padding: 20, 
+    border: '2px solid rgba(0, 255, 255, 0.4)', 
+    textAlign: 'center' 
+  }}>
+    <div style={{ fontSize: '2rem', marginBottom: 10 }}>💰</div>
+    <div className="stat-number" style={{ 
+      fontSize: '1.5rem', 
+      fontWeight: 900, 
+      background: 'linear-gradient(135deg, #0ff, #f0f)', 
+      WebkitBackgroundClip: 'text', 
+      WebkitTextFillColor: 'transparent', 
+      marginBottom: 5 
+    }}>
+      ₹{walletBalance.toLocaleString()}
+    </div>
+    <div style={{ color: '#999', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: 0.5 }}>
+      Current Balance
+    </div>
+  </div>
 
-          <div className="stat-card card" style={{ 
-            background: 'rgba(0, 0, 0, 0.6)', 
-            backdropFilter: 'blur(15px)', 
-            borderRadius: 20, 
-            padding: 20, 
-            border: '2px solid rgba(255, 0, 255, 0.4)', 
-            textAlign: 'center' 
-          }}>
-            <div style={{ fontSize: '2rem', marginBottom: 10 }}>📊</div>
-            <div className="stat-number" style={{ 
-              fontSize: '1.5rem', 
-              fontWeight: 900, 
-              color: '#f0f', 
-              marginBottom: 5 
-            }}>
-              ₹{totalSpent.toLocaleString()}
-            </div>
-            <div style={{ color: '#999', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: 0.5 }}>
-              Total Spent
-            </div>
-          </div>
+  {/* Total Recharged */}
+  <div className="stat-card card" style={{ 
+    background: 'rgba(0, 0, 0, 0.6)', 
+    backdropFilter: 'blur(15px)', 
+    borderRadius: 20, 
+    padding: 20, 
+    border: '2px solid rgba(0, 255, 255, 0.4)', 
+    textAlign: 'center' 
+  }}>
+    <div style={{ fontSize: '2rem', marginBottom: 10 }}>💳</div>
+    <div className="stat-number" style={{ 
+      fontSize: '1.5rem', 
+      fontWeight: 900, 
+      color: '#0ff', 
+      marginBottom: 5 
+    }}>
+      ₹{totalRecharged.toLocaleString()}
+    </div>
+    <div style={{ color: '#999', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: 0.5 }}>
+      Total Recharged
+    </div>
+  </div>
 
-          <div className="stat-card card" style={{ 
-            background: 'rgba(0, 0, 0, 0.6)', 
-            backdropFilter: 'blur(15px)', 
-            borderRadius: 20, 
-            padding: 20, 
-            border: '2px solid rgba(0, 255, 255, 0.4)', 
-            textAlign: 'center' 
-          }}>
-            <div style={{ fontSize: '2rem', marginBottom: 10 }}>💳</div>
-            <div className="stat-number" style={{ 
-              fontSize: '1.5rem', 
-              fontWeight: 900, 
-              color: '#0ff', 
-              marginBottom: 5 
-            }}>
-              ₹{totalRecharged.toLocaleString()}
-            </div>
-            <div style={{ color: '#999', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: 0.5 }}>
-              Total Recharged
-            </div>
-          </div>
+  {/* Total Sessions */}
+  <div className="stat-card card" style={{ 
+    background: 'rgba(0, 0, 0, 0.6)', 
+    backdropFilter: 'blur(15px)', 
+    borderRadius: 20, 
+    padding: 20, 
+    border: '2px solid rgba(255, 0, 255, 0.4)', 
+    textAlign: 'center' 
+  }}>
+    <div style={{ fontSize: '2rem', marginBottom: 10 }}>🎵</div>
+    <div className="stat-number" style={{ 
+      fontSize: '1.5rem', 
+      fontWeight: 900, 
+      background: 'linear-gradient(135deg, #f0f, #0ff)', 
+      WebkitBackgroundClip: 'text', 
+      WebkitTextFillColor: 'transparent', 
+      marginBottom: 5 
+    }}>
+      {transactions.length}
+    </div>
+    <div style={{ color: '#999', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: 0.5 }}>
+      Total Sessions
+    </div>
+  </div>
+</div>
 
-          <div className="stat-card card" style={{ 
-            background: 'rgba(0, 0, 0, 0.6)', 
-            backdropFilter: 'blur(15px)', 
-            borderRadius: 20, 
-            padding: 20, 
-            border: '2px solid rgba(255, 0, 255, 0.4)', 
-            textAlign: 'center' 
-          }}>
-            <div style={{ fontSize: '2rem', marginBottom: 10 }}>🎵</div>
-            <div className="stat-number" style={{ 
-              fontSize: '1.5rem', 
-              fontWeight: 900, 
-              background: 'linear-gradient(135deg, #f0f, #0ff)', 
-              WebkitBackgroundClip: 'text', 
-              WebkitTextFillColor: 'transparent', 
-              marginBottom: 5 
-            }}>
-              {transactions.length}
-            </div>
-            <div style={{ color: '#999', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: 0.5 }}>
-              Total Sessions
-            </div>
-          </div>
-        </div>
 
         {/* Tabs Navigation - Hidden on mobile when menu is available */}
         <div className="tabs" style={{ 
@@ -1296,5 +1278,6 @@ const CustomerDashboard = () => {
     </div>
   );
 };
+
 
 export default CustomerDashboard;
