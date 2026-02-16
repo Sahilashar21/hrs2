@@ -537,6 +537,7 @@ import AdminPanel from './pages/AdminPanel';
 import CustomerDashboard from './pages/CustomerDashboard';
 import ContactPage from './components/ContactPage';
 import AboutPage from './components/AboutPage';
+import ChatWidget from './components/ChatWidget';
 import hrs3 from './images/hrs3.jpg';
 import studio3 from './images/studio3.jpg';
 import studio4 from './images/studio4.jpg';
@@ -912,6 +913,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
       </Routes>
       <Analytics />
+      <ChatWidget />
     </Router>
   );
 }
