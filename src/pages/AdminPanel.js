@@ -2310,7 +2310,6 @@ import {
   updateDoc,
   arrayUnion,
   collection,
-  getDocs,
   deleteDoc,
   onSnapshot,
 } from "firebase/firestore";
