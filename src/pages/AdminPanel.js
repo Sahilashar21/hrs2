@@ -2360,6 +2360,7 @@ const allowedAdmins = [
 ];
 
 const ADMIN_PASSWORD = "04232129";
+const LOGIN_STORAGE_KEY = "hrs_admin_login";
 
 // Helper function to format date as DD/MM/YYYY
 const formatDate = (dateString) => {
@@ -2380,6 +2381,7 @@ function AdminPanel() {
   const [adminPassword, setAdminPassword] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [rememberLogin, setRememberLogin] = useState(false);
 
   // user management state
   const [email, setEmail] = useState("");
@@ -2439,10 +2441,31 @@ function AdminPanel() {
   const [showUserModal, setShowUserModal] = useState(false);
   const [modalUser, setModalUser] = useState(null);
 
+  useEffect(() => {
+    const saved = localStorage.getItem(LOGIN_STORAGE_KEY);
+    if (!saved) return;
+    try {
+      const parsed = JSON.parse(saved);
+      if (parsed?.email) setAdminEmail(parsed.email);
+      if (parsed?.password) setAdminPassword(parsed.password);
+      setRememberLogin(true);
+    } catch (error) {
+      console.warn("Invalid saved admin login", error);
+    }
+  }, []);
+
   // Authenticate admin
   const authenticateAdmin = () => {
     if (allowedAdmins.includes(adminEmail) && adminPassword === ADMIN_PASSWORD) {
       setAuthenticated(true);
+      if (rememberLogin) {
+        localStorage.setItem(
+          LOGIN_STORAGE_KEY,
+          JSON.stringify({ email: adminEmail, password: adminPassword })
+        );
+      } else {
+        localStorage.removeItem(LOGIN_STORAGE_KEY);
+      }
       // onSnapshot in useEffect will start updating allUsers
     } else {
       alert("Access Denied: Invalid email or password.");
@@ -3490,15 +3513,7 @@ function AdminPanel() {
                   />
                 </div>
                 <div className="row g-3">
-                  <div className="col-md-6">
-                    <button
-                      onClick={() => deductFromWallet("song", 25 * songCount)}
-                      className="btn btn-primary w-100"
-                    >
-                      Song @ ₹25 × {songCount} = ₹{25 * songCount}
-                    </button>
-                  </div>
-                  <div className="col-md-6">
+                  <div className="col-12">
                     <button
                       onClick={() => deductFromWallet("song", 30 * songCount)}
                       className="btn btn-info w-100 text-white"
@@ -3703,6 +3718,23 @@ function AdminPanel() {
               </div>
             </div>
 
+            <div className="form-check mb-3">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="rememberAdminLogin"
+                checked={rememberLogin}
+                onChange={(e) => {
+                  const next = e.target.checked;
+                  setRememberLogin(next);
+                  if (!next) localStorage.removeItem(LOGIN_STORAGE_KEY);
+                }}
+              />
+              <label className="form-check-label" htmlFor="rememberAdminLogin">
+                Remember login info on this device
+              </label>
+            </div>
+
             <button onClick={authenticateAdmin} className="btn btn-primary btn-lg w-100 fw-semibold" style={{ background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)", border: "none" }}>
               Login as Admin
             </button>
@@ -3714,14 +3746,74 @@ function AdminPanel() {
 
   // MAIN RENDER
   return (
-    <div className="min-vh-100 bg-light py-4">
+    <div className="min-vh-100 bg-light py-4 admin-shell">
+      <style>{`
+        .admin-shell {
+          background: linear-gradient(180deg, #fff6ee 0%, #f6efe8 100%);
+          color: #0f172a;
+        }
+        .admin-shell .card {
+          background: rgba(255, 255, 255, 0.78);
+          border: 1px solid rgba(226, 232, 240, 0.9);
+          border-radius: 14px;
+          box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+          backdrop-filter: blur(10px);
+        }
+        .admin-shell .card-header {
+          border-bottom: 1px solid #e2e8f0;
+        }
+        .admin-shell .btn {
+          border-radius: 999px;
+          font-weight: 600;
+        }
+        .admin-shell .btn-primary {
+          background: #0f172a;
+          border: none;
+        }
+        .admin-shell .btn-info {
+          background: #0ea5e9;
+          border: none;
+        }
+        .admin-shell .btn-success {
+          background: #16a34a;
+          border: none;
+        }
+        .admin-shell .btn-outline-secondary {
+          border-color: #94a3b8;
+          color: #334155;
+        }
+        .admin-shell .form-control,
+        .admin-shell .form-select {
+          border-radius: 12px;
+          border-color: #cbd5f5;
+          box-shadow: none;
+        }
+        .admin-shell .form-control:focus,
+        .admin-shell .form-select:focus {
+          border-color: #0f172a;
+          box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.12);
+        }
+        .admin-shell .table thead th {
+          text-transform: uppercase;
+          font-size: 0.78rem;
+          letter-spacing: 0.06em;
+          color: #475569;
+        }
+        .admin-shell .table tbody tr:hover {
+          background: #f1f5f9;
+        }
+        .admin-shell .admin-tab-btn {
+          border-radius: 12px;
+          padding: 10px 16px;
+        }
+      `}</style>
       <div className="container">
         {/* Tabs: Dashboard / Users */}
         <div className="d-flex justify-content-start gap-2 mb-3">
-          <button className={`btn ${activeTab === "dashboard" ? "btn-primary" : "btn-outline-secondary"}`} onClick={() => { setActiveTab("dashboard"); }}>
+          <button className={`btn admin-tab-btn ${activeTab === "dashboard" ? "btn-primary" : "btn-outline-secondary"}`} onClick={() => { setActiveTab("dashboard"); }}>
             📊 Dashboard
           </button>
-          <button className={`btn ${activeTab === "users" ? "btn-primary" : "btn-outline-secondary"}`} onClick={() => { setActiveTab("users"); }}>
+          <button className={`btn admin-tab-btn ${activeTab === "users" ? "btn-primary" : "btn-outline-secondary"}`} onClick={() => { setActiveTab("users"); }}>
             👥 Users & Management
           </button>
         </div>

@@ -548,7 +548,6 @@ import studio6 from './images/studio6.mp4';
 import { Type } from 'lucide-react';
 import { Analytics } from "@vercel/analytics/react";
 
-import ChristmasSnow from './components/ChristmasSnow';
 
 
 function App() {
@@ -908,8 +907,6 @@ function App() {
           scroll-margin-top: 80px;
         }
       `}</style>
-      <ChristmasSnow />
-
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
