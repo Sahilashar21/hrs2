@@ -537,15 +537,11 @@ import AdminPanel from './pages/AdminPanel';
 import CustomerDashboard from './pages/CustomerDashboard';
 import ContactPage from './components/ContactPage';
 import AboutPage from './components/AboutPage';
-import hrs1 from './images/hrs1.webp';
-import image from './images/image.png';
-import hrs2 from './images/hrs2.webp';
 import hrs3 from './images/hrs3.jpg';
 import studio3 from './images/studio3.jpg';
 import studio4 from './images/studio4.jpg';
 import studio5 from './images/studio5.mp4';
 import studio6 from './images/studio6.mp4';
-import { Type } from 'lucide-react';
 import { Analytics } from "@vercel/analytics/react";
 
 

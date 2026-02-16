@@ -435,7 +435,6 @@ const CustomerDashboard = () => {
     }
   };
 
-  const totalSpent = transactions.reduce((sum, txn) => sum + (txn.amount || 0), 0);
   const totalRecharged = recharges.reduce((sum, rchg) => sum + (rchg.amount || 0) + (rchg.bonus || 0), 0);
 
   const filteredTransactions = transactions.filter(txn => 

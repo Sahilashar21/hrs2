@@ -2318,7 +2318,6 @@ import {
   Music,
   DollarSign,
   Coffee,
-  Droplets,
   Users,
   LogIn,
   Eye,
@@ -2650,23 +2649,6 @@ function AdminPanel() {
     } catch (error) {
       console.error("Error deleting recharge:", error);
       alert("Error deleting recharge. Please try again.");
-    }
-  };
-
-  // fetch all users (one-time) — snapshots will keep it live when authenticated
-  const fetchAllUsers = async () => {
-    try {
-      const usersCol = collection(db, "users");
-      const userSnapshot = await getDocs(usersCol);
-      const usersList = userSnapshot.docs.map((docSnap) => ({
-        id: docSnap.id,
-        ...docSnap.data(),
-      }));
-      setAllUsers(usersList);
-      setShowAllUsers(true);
-    } catch (error) {
-      console.error("Error fetching all users:", error);
-      alert("Error fetching users list. Please try again.");
     }
   };
 
