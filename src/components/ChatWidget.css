@@ -4,6 +4,9 @@
   right: 20px;
   z-index: 2000;
   font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .chat-fab {
@@ -132,11 +135,12 @@
     bottom: max(12px, env(safe-area-inset-bottom));
     right: 12px;
     left: 12px;
+    align-items: flex-end;
   }
 
   .chat-panel {
     width: 100%;
-    height: min(85vh, 520px);
+    height: min(72vh, 460px);
     margin-bottom: 10px;
   }
 
@@ -156,7 +160,7 @@
   }
 
   .chat-panel {
-    height: min(90vh, 560px);
+    height: min(74vh, 500px);
     border-radius: 16px;
   }
 
@@ -172,7 +176,7 @@
 @media (max-width: 420px) {
   .chat-panel {
     width: 100vw;
-    height: 100dvh;
+    height: 80dvh;
     border-radius: 0;
     margin: 0;
   }
